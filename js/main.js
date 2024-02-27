@@ -39,6 +39,7 @@ function get_task(){
 function update_tasks(newTasks){
     localStorage.setItem("tasks", JSON.stringify(newTasks));
     tasks = newTasks;
+    
 
 }
 
@@ -138,6 +139,7 @@ function check(parent, parentNum){
 function clearCompleted(){
     tasks = tasks.filter(task=> task.completed == "uncompleted");
     update_tasks(tasks);
+    updateUL(tasks);
   
 }
 
@@ -194,6 +196,7 @@ info.addEventListener("click",(e)=>{
     
     if(e.target.classList.contains("clear")){
         clearCompleted();
+        console.log("C");
         
 
     } else if(e.target.classList.contains("active")){
